@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8"> <!-- indicar codificación que utiliza el documento -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- documento ocupa todo el ancho disponible del dispositivo -->
+    <meta name=”theme-color” content=”#09f”> <!-- definir un color -->
+    <meta name="description" content="Portfolio de Simina Daniela Ciui, ingeniera de software y desarrolladora web..">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph para redes sociales -->
+    <meta property="og:title" content="Portfolio de Simina">
+    <meta property="og:description" content="Portfolio de Simina Ciui, ingeniera de software y desarrolladora web.">
+    <meta property="og:image" content="icono.png">
+    <meta property="og:url" content="https://siminasportfolio.com">
+    <!-- <meta rel="icon" type="icono/png" href="icono.png"> -->
+    <link rel="icon" href="icono.ico" type="image/x-icon">
+    <!-- enlaces adicionales -->
+    <link rel=”canonical” href=siminasportfolio.com”>
+    <!-- <link rel=”alternate” href=”url” hreflang=”es_GB”> --> <!-- documento alternativo en otro idioma -->
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <title>Portfolio de Simina - Ingeniera Informática</title> <!-- indicar el título del documento -->
+
+    <!-- definimos estilos css -->
+    <style>
+        /* Estilos generales */
+        body {
+            background-color: #0A192F;
+            color: #EAEAEA;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: #64FFDA;
+            text-align: center;
+        }
+
+        a {
+            color: #64FFDA;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            color: #FFFFFF;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-bottom: 2px solid #64FFDA;
+        }
+
+        nav a {
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #64FFDA;
+            color: #0A192F;
+        }
+
+        /* Foto de presentación */
+        .perfil {
+            border-radius: 50%;
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            transition: transform 0.3s;
+        }
+
+        .perfil:hover {
+            transform: scale(1.1);
+        }
+
+        .bio {
+            text-align: justify;
+            max-width: 700px;
+            margin: 20px auto;
+            font-size: 18px;
+        }
+
+        .tecnologias {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .tecnologias li {
+            background: #112240;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: default;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tecnologias li:hover {
+            background: #64FFDA;
+            color: #0A192F;
+        }
+
+        /* Estilos para la sección de proyectos */
+        section {
+            padding: 40px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        article {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+
+        article:hover {
+            transform: scale(1.02);
+        }
+
+        /* Estilos para el formulario */
+        form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        input,
+        select,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input,
+        select {
+            background: #112240;
+            color: #EAEAEA;
+        }
+
+        button {
+            background: #64FFDA;
+            color: #0A192F;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #EAEAEA;
+            color: #0A192F;
+        }
+
+        /* Para el checkbox */
+        input[type="checkbox"] {
+            display: inline-block;
+            width: auto;
+            margin-right: 5px;
+        }
+
+        label[for="terms"] {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        /* Modal */
+        dialog {
+            background: #112240;
+            padding: 20px;
+            border: none;
+            border-radius: 10px;
+            color: #EAEAEA;
+        }
+
+        .social-icons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .social-icons a {
+            background: #64FFDA;
+            padding: 15px;
+            border-radius: 50%;
+            transition: background 0.3s;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0A192F;
+            font-size: 35px;
+        }
+
+        .social-icons a:hover {
+            background: #0A192F;
+            color: #64FFDA;
+        }
+
+        /* Estilos para detalles */
+        details {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        /* Media queries */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .perfil {
+                width: 200px;
+                height: 200px;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            .bio {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="#experiencia">Experiencia</a>
+            <a href="#proyectos">Proyectos</a>
+            <a href="#contacto">Contacto</a>
+            <!-- Enlace para enviar un correo -->
+            <!-- <a href="mailto:correo@gmail.com">Envíame un correo</a> -->
+        </nav>
+    </header>
+
+    <main>
+        <h1>Portfolio de Simina</h1>
+        <!-- Sección de presentación con foto -->
+        <section>
+            <h1>¡Hola! Soy Simina</h1>
+            <img src="foto_prueba.png" alt="Foto de prueba Simina" class="perfil">
+            <p class="bio">Soy estudiante de ingeniería de software con una gran pasión por el desarrollo web. Me
+                encanta
+                aprender nuevas tecnologías y crear soluciones que marquen la diferencia,
+                además de colaborar en proyectos que combinen creatividad y funcionalidad.</p>
+        </section>
+
+        <aside> <!-- contenido inidrectamente relacionado con el contenido principal del documento -->
+            <header>
+                <h3> Tecnologías favoritas </h3>
+            </header>
+            <ul class="tecnologias">
+                <li>TypeScript</li>
+                <li>Java</li>
+                <li>Python</li>
+                <li>HTML</li>
+                <li>CSS</li>
+            </ul>
+        </aside>
+
+        <!-- Sección de experiencia -->
+        <section id="experiencia">
+            <h2>Mi experiencia</h2>
+            <article>
+                <header>
+                    <h4>Capgemini</h4>
+                </header>
+                <p>Desarrollo de un sitio Web corporativo con una interfaz amigable y moderna.</p>
+                <footer>
+                    <small>Tecnologías utilizadas: TypeScript, HTML, CSS, Java</small>
+                </footer>
+            </article>
+        </section>
+
+        <!-- Sección de proyectos -->
+        <h2 id="proyectos">Proyectos realizados</h2>
+        <section>
+            <article>
+                <header>
+                    <h4>Aplicación Web - API de Spotify</h4>
+                </header>
+                <p>Desarrollo de una aplicación web basada en la API de Spotify, brindando una experiencia interactiva y
+                    personalizada.</p>
+                <footer>
+                    <small>Tecnologías utilizadas: TypeScript, HTML, CSS, Java</small>
+                </footer>
+            </article>
+            <article>
+                <header>
+                    <h4>Compra de coches de lujo</h4>
+                </header>
+                <p>Desarrollo de una app web para la compra de coches de lujo con integración de pagos online.</p>
+                <footer>
+                    <small>Tecnologías utilizadas: TypeScript, Java, CSS</small>
+                </footer>
+            </article>
+        </section>
+
+        <!-- Sección de contacto -->
+        <section id="contacto">
+            <h2>Formulario de Contacto</h2>
+            <form id="contactForm"  method="post" action="/">
+                <fieldset>
+                    <legend>Información personal</legend>
+                    <div>
+                        <label for="name">Nombre:</label>
+                        <input type="text" id="name" name="name" placeholder="Ej: Juan Pérez" required>
+                    </div>
+                    <div>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
+                    </div>
+                    <div>
+                        <label for="tel">Teléfono:</label>
+                        <input type="tel" id="tel" name="tel" placeholder="Ej: +34 600 123 456" pattern="[0-9+ ]{9,15}">
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Motivo de Contacto</legend>
+                    <div>
+                        <label for="why">¿Sobre qué quieres contactar?</label>
+                        <select name="why" id="why">
+                            <option value="1">Trabajo</option>
+                            <option value="2">Consulta</option>
+                            <option value="3">Otros</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="lang">¿En qué lenguaje necesitas ayuda?</label>
+                        <input list="lang" name="lang">
+                        <datalist id="lang">
+                            <option value="C++"></option>
+                            <option value="Java"></option>
+                            <option value="Python"></option>
+                            <option value="TypeScript"></option>
+                        </datalist>
+                    </div>
+                    <div class="terms-container">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">Acepta los términos</label>
+                    </div>
+                </fieldset>
+
+                <button type="submit">Enviar contacto</button>
+                <button type="reset">Borrar formulario</button>
+            </form>
+        </section>
+
+        <!-- Modal de confirmación -->
+        <dialog id="confirmationDialog">
+            <p>¿Estás seguro de que deseas enviar el formulario?</p>
+            <button id="confirmButton">Confirmar</button>
+            <button id="cancelButton">Cancelar</button>
+        </dialog>
+
+        <script>
+            let form = document.getElementById('contactForm');
+            let confirmationDialog = document.getElementById('confirmationDialog');
+            let confirmButton = document.getElementById('confirmButton');
+            let cancelButton = document.getElementById('cancelButton');
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                confirmationDialog.showModal();
+            });
+
+            confirmButton.addEventListener('click', function () {
+                form.submit();
+            });
+
+            cancelButton.addEventListener('click', function () {
+                confirmationDialog.close();
+            });
+        </script>
+
+        <!-- Sección de preguntas frecuentes -->
+        <section>
+            <h2>Preguntas Frecuentes</h2>
+            <details>
+                <summary>¿Cómo contacto?</summary>
+                <p>Enviando un correo a siminaciui@gmail.com</p>
+            </details>
+            <details>
+                <summary>¿Cómo me llamo?</summary>
+                <p>Simina Ciui</p>
+            </details>
+            <details>
+                <summary>¿Cuáles son tus metas?</summary>
+                <p>Me gustaría seguir creciendo en desarrollo web y profundizar en nuevas tecnologías como inteligencia
+                    artificial y blockchain.</p>
+            </details>
+        </section>
+
+        <!-- Modal -->
+        <dialog id="modal">
+            <h1>Más información</h1>
+            <p>Gracias por visitar mi portfolio. Estoy abierta a nuevos desafíos y colaboraciones, ¡no dudes en
+                contactarme!</p>
+            <button id="cerrar">Cerrar</button>
+        </dialog>
+
+        <button id="show">Ver más información</button>
+
+        <script>
+            document.getElementById('show').addEventListener('click', () => {
+                document.getElementById('modal').showModal();
+            });
+
+            document.getElementById('cerrar').addEventListener('click', () => {
+                document.getElementById('modal').close();
+            });
+        </script>
+
+        <section class ="social-media">
+            <div class="social-icons">
+                <a href="https://www.instagram.com/ciui_simina_daniela/" target="_blank" rel="noreferrer"
+                    title="Visita mi Instagram" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/simina-ciui" target="_blank" rel="noreferrer"
+                    title="Visita mi LinkedIn" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </section>
+        
+    </main>
+</body>
+
+</html>
