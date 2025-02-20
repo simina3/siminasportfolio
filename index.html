@@ -5,7 +5,7 @@
     <meta charset="UTF-8"> <!-- indicar codificación que utiliza el documento -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- documento ocupa todo el ancho disponible del dispositivo -->
-    <meta name=”theme-color” content=”#09f”> <!-- definir un color -->
+    <meta name="theme-color" content="#09f"> <!-- definir un color -->
     <meta name="description" content="Portfolio de Simina Daniela Ciui, ingeniera de software y desarrolladora web..">
     <meta name="robots" content="index, follow">
     <!-- Open Graph para redes sociales -->
@@ -13,10 +13,9 @@
     <meta property="og:description" content="Portfolio de Simina Ciui, ingeniera de software y desarrolladora web.">
     <meta property="og:image" content="icono.png">
     <meta property="og:url" content="https://siminasportfolio.com">
-    <!-- <meta rel="icon" type="icono/png" href="icono.png"> -->
-    <link rel="icon" href="icono.ico" type="image/x-icon">
+    <link rel="icon" href="icono.ico" type="icono/x-icon">
     <!-- enlaces adicionales -->
-    <link rel=”canonical” href=siminasportfolio.com”>
+    <link rel="canonical" href="siminasportfolio.com">
     <!-- <link rel=”alternate” href=”url” hreflang=”es_GB”> --> <!-- documento alternativo en otro idioma -->
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
@@ -33,6 +32,8 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
+            animation: fadeIn 0.5s ease-in-out;
+            overflow-x: hidden;
         }
 
         h1,
@@ -41,6 +42,7 @@
         h4 {
             color: #64FFDA;
             text-align: center;
+            margin: 20px 0;
         }
 
         a {
@@ -60,6 +62,7 @@
             background: rgba(255, 255, 255, 0.1);
             padding: 15px;
             border-bottom: 2px solid #64FFDA;
+            flex-wrap: wrap;
         }
 
         nav a {
@@ -68,17 +71,15 @@
             border-radius: 5px;
         }
 
-        nav a:hover {
+        /* nav a:hover {
             background-color: #64FFDA;
             color: #0A192F;
-        }
+        } */
 
         /* Foto de presentación */
         .perfil {
             border-radius: 50%;
-            width: 100%;
             max-width: 250px;
-            height: auto;
             display: block;
             margin: 0 auto;
             transition: transform 0.3s;
@@ -98,9 +99,11 @@
         .tecnologias {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 15px;
             flex-wrap: wrap;
             margin-top: 30px;
+            padding: 0 10px;
+            box-sizing: border-box;
         }
 
         .tecnologias li {
@@ -120,7 +123,7 @@
             color: #0A192F;
         }
 
-        /* Estilos para la sección de proyectos */
+        /* Estilos para Proyectos y Experiencia */
         section {
             padding: 40px;
             max-width: 900px;
@@ -157,6 +160,7 @@
             border: none;
             border-radius: 5px;
             font-size: 16px;
+            box-sizing: border-box;
         }
 
         input,
@@ -187,6 +191,27 @@
         label[for="terms"] {
             display: inline-block;
             vertical-align: middle;
+        }
+
+        .terms-container {
+            display: flex;
+            justify-content: flex-end;
+            /* Alinea el contenido a la derecha */
+            align-items: center;
+            /* Alinea el checkbox y el texto verticalmente */
+        }
+
+        /* Botón de borrar formulario*/
+        button[type="reset"] {
+            background-color: #0b0b30;
+            color: #FFFFFF;
+        }
+
+        button[type="reset"]:hover {
+            background-color: #FF6347;
+            color: #0A192F;
+            transform: scale(1.05);
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         /* Modal */
@@ -234,11 +259,59 @@
             margin-bottom: 10px;
         }
 
+        footer {
+            background-color: #112240;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #EAEAEA;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .footer-left p {
+            margin: 3px 0;
+            font-size: 16px;
+        }
+
+        /* .footer-right a {
+            color: #64FFDA;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.3s;
+        }
+
+        .footer-right a:hover {
+            color: #EAEAEA;
+        } */
+
+        @media (max-width: 1200px) {
+            .perfil {
+                max-width: 200px;
+            }
+
+            .bio {
+                font-size: 16px;
+            }
+        }
+
         /* Media queries */
         @media (max-width: 768px) {
+
+            h1,
+            h2,
+            h3,
+            h4 {
+                font-size: 1.5em;
+            }
+
             nav {
-                flex-direction: column;
-                text-align: center;
+                gap: 10px;
             }
 
             .perfil {
@@ -246,13 +319,55 @@
                 height: 200px;
             }
 
+            .bio {
+                font-size: 14px;
+            }
+
             section {
                 padding: 20px;
             }
+        }
 
-            .bio {
-                font-size: 16px;
+        @media (max-width: 480px) {
+            nav {
+                flex-direction: column;
             }
+
+            .tecnologias {
+                flex-direction: column;
+            }
+
+            .social-icons {
+                bottom: 10px;
+                right: 10px;
+            }
+        }
+
+        /* Animación para la página al cargar */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Estilos para el mensaje de confirmación */
+        #confirmationMessage {
+            display: none;
+            /* Oculto por defecto */
+            background: #64FFDA;
+            color: #0A192F;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 16px;
+            opacity: 1;
+            transition: opacity 1s ease-out;
         }
     </style>
 </head>
@@ -263,8 +378,6 @@
             <a href="#experiencia">Experiencia</a>
             <a href="#proyectos">Proyectos</a>
             <a href="#contacto">Contacto</a>
-            <!-- Enlace para enviar un correo -->
-            <!-- <a href="mailto:correo@gmail.com">Envíame un correo</a> -->
         </nav>
     </header>
 
@@ -273,7 +386,7 @@
         <!-- Sección de presentación con foto -->
         <section>
             <h1>¡Hola! Soy Simina</h1>
-            <img src="foto_prueba.png" alt="Foto de prueba Simina" class="perfil">
+            <img src="foto_prueba.png" alt="Foto de prueba Simina" class="perfil" loading="lazy">
             <p class="bio">Soy estudiante de ingeniería de software con una gran pasión por el desarrollo web. Me
                 encanta
                 aprender nuevas tecnologías y crear soluciones que marquen la diferencia,
@@ -334,7 +447,7 @@
         <!-- Sección de contacto -->
         <section id="contacto">
             <h2>Formulario de Contacto</h2>
-            <form id="contactForm"  method="post" action="/">
+            <form id="contactForm" method="post" action="/">
                 <fieldset>
                     <legend>Información personal</legend>
                     <div>
@@ -347,7 +460,8 @@
                     </div>
                     <div>
                         <label for="tel">Teléfono:</label>
-                        <input type="tel" id="tel" name="tel" placeholder="Ej: +34 600 123 456" pattern="[0-9+ ]{9,15}">
+                        <input type="tel" id="tel" name="tel" placeholder="Ej: +34 (600) 123 456"
+                            pattern="[0-9+ ]{9,15}">
                     </div>
                 </fieldset>
 
@@ -385,8 +499,8 @@
         <!-- Modal de confirmación -->
         <dialog id="confirmationDialog">
             <p>¿Estás seguro de que deseas enviar el formulario?</p>
-            <button id="confirmButton">Confirmar</button>
-            <button id="cancelButton">Cancelar</button>
+            <button id="confirmButton" aria-label="Confirmar envío del formulario">Confirmar</button>
+            <button id="cancelButton" aria-label="Cancelar envío del formulario">Cancelar</button>
         </dialog>
 
         <script>
@@ -394,6 +508,17 @@
             let confirmationDialog = document.getElementById('confirmationDialog');
             let confirmButton = document.getElementById('confirmButton');
             let cancelButton = document.getElementById('cancelButton');
+            // Obtener o crear el mensaje de confirmación
+            let confirmationMessage = document.getElementById("confirmationMessage");
+            if (!confirmationMessage) {
+                confirmationMessage = document.createElement("div");
+                confirmationMessage.id = "confirmationMessage";
+                confirmationMessage.textContent = "¡Gracias por tu mensaje! Te responderé lo antes posible.";
+                form.after(confirmationMessage); // Insertar mensaje después del formulario
+            }
+
+            // Agregar el mensaje justo después del formulario
+            form.after(confirmationMessage);
 
             form.addEventListener('submit', function (e) {
                 e.preventDefault();
@@ -401,7 +526,16 @@
             });
 
             confirmButton.addEventListener('click', function () {
-                form.submit();
+                confirmationDialog.close(); // Cerrar el modal
+                confirmationMessage.style.display = "block"; // Mostrar mensaje de confirmación
+                confirmationMessage.style.opacity = "1"; // Hacerlo visible
+                form.reset(); // Limpiar formulario después del envío
+                window.scrollTo(0, document.body.scrollHeight); // Hacer scroll hacia el mensaje
+
+                // Ocultar el mensaje después de 5 segundos (5000 ms)
+                setTimeout(() => {
+                    confirmationMessage.style.display = "none";
+                }, 5000);
             });
 
             cancelButton.addEventListener('click', function () {
@@ -413,12 +547,8 @@
         <section>
             <h2>Preguntas Frecuentes</h2>
             <details>
-                <summary>¿Cómo contacto?</summary>
-                <p>Enviando un correo a siminaciui@gmail.com</p>
-            </details>
-            <details>
-                <summary>¿Cómo me llamo?</summary>
-                <p>Simina Ciui</p>
+                <summary>¿Cómo contacto contigo?</summary>
+                <p>Enviando un correo a siminadaniela.ciui@alu.uclm.es</p>
             </details>
             <details>
                 <summary>¿Cuáles son tus metas?</summary>
@@ -447,20 +577,36 @@
             });
         </script>
 
-        <section class ="social-media">
+        <section class="social-media">
             <div class="social-icons">
                 <a href="https://www.instagram.com/ciui_simina_daniela/" target="_blank" rel="noreferrer"
                     title="Visita mi Instagram" aria-label="Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/simina-ciui" target="_blank" rel="noreferrer"
+                <a href="https://www.linkedin.com/in/simina-daniela-ciui-33b6a0259" target="_blank" rel="noreferrer"
                     title="Visita mi LinkedIn" aria-label="LinkedIn">
                     <i class="fab fa-linkedin"></i>
                 </a>
             </div>
         </section>
-        
     </main>
+
+    <footer>
+        <section class="footer-content">
+            <div class="footer-left">
+                <p>&copy; 2025 Simina Daniela Ciui</p>
+                <p>Desarrolladora Web & Ingeniera de Software</p>
+            </div>
+            <!-- <div class="footer-right">
+                <a href="#contacto" aria-label="Ir a la sección de contacto">Contacto</a>
+                <a href="https://www.linkedin.com/in/simina-daniela-ciui-33b6a0259" target="_blank" rel="noreferrer"
+                    aria-label="Visita mi LinkedIn">LinkedIn</a>
+                <a href="https://www.instagram.com/ciui_simina_daniela/" target="_blank" rel="noreferrer"
+                    aria-label="Visita mi Instagram">Instagram</a>
+            </div> -->
+        </section>
+    </footer>
+
 </body>
 
 </html>
